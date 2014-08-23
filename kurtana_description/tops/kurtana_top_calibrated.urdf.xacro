@@ -37,13 +37,13 @@
   <!-- *** SICK TiM3xx laser *** -->
   <!-- ************************* -->
 
-  <include filename="$(find sick_tim3xx)/urdf/sick_tim3xx.urdf.xacro" />
-  <xacro:sick_tim3xx laser_link="laser" />
+  <include filename="$(find sick_tim)/urdf/sick_tim.urdf.xacro" />
+  <xacro:sick_tim310 name="laser" ros_topic="scan" />
 
   <joint name="kurtana_laser_joint" type="fixed">
     <parent link="kurtana_baseplate_link" />
     <child link="laser_mount_link" />
-    <origin xyz="${baseplate_length/2 - sick_tim3xx_length/2} 0 ${baseplate_height/2}" rpy="0 0 0" />
+    <origin xyz="${baseplate_length/2 - 0.06/2} 0 ${baseplate_height/2}" rpy="0 0 0" />  <!-- 0.06: sick_tim length-->
   </joint>
 
 
